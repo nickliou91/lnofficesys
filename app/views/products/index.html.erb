@@ -1,0 +1,92 @@
+<div class ="row">
+<%= render 'layouts/adminsidebar' %>  
+
+
+<div class= "col-md-10"> 
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product SKU</th>
+        <th>Name</th>
+        
+        <th>Category Name </th>
+        <th>Sub Category Name </th>
+<!--         <th>Picture URL </th>
+ -->        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.desc %></td>
+        <% if product.category_id %>
+        <% category = Category.find(product.category_id) %>
+        <td><%= category.name%> </td>
+          <% else %>
+           <td>No category </td>
+          <% end %>
+        <% if product.sub_category_id %>
+          <% sub_category = SubCategory.find(product.sub_category_id) %>
+          <td><%= sub_category.name %> </td>
+          <% else %>
+            <td>No sub-category</td>
+            <% end %>
+
+        <td><td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+
+  </div>
+
+  <div class="row">
+  <div class="col-md-4">
+   <%= form_for @product, :html => {:multipart => true} do |f| %>
+    
+      
+      <%= f.label :title, "Product SKU" %>
+      <%= f.text_field :title , class: 'form-control'%>
+
+
+      <%= f.label :desc, "Name" %>
+      <%= f.text_field :desc , class: 'form-control'%>
+
+       <%= f.label :height, "Height" %>
+      <%= f.text_field :height, class: 'form-control' %>
+      <%= f.label :width, "Width" %>
+      <%= f.text_field :width, class: 'form-control' %>
+
+     
+      <%= f.label :depth, "Depth" %>
+      <%= f.text_field :depth, class: 'form-control' %>
+
+      <%= f.label :category_id, "Category" %>
+      <%= f.collection_select(:category_id, @categories, :id, :name, :include_blank =>" Please select an category") %>
+
+            <%= f.collection_select(:sub_category_id, @sub_categories, :id, :name, :include_blank =>" Please select an sub-category")%>
+      <%= f.label :file, "Upload Image" %>
+      <%= f.file_field :file %> 
+
+      <%= f.submit "Add Product", class: "btn btn-primary" %>
+
+
+      <% end %>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

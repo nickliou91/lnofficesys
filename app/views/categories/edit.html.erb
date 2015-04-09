@@ -1,0 +1,21 @@
+<div class ="row">
+	<%= render 'layouts/adminsidebar' %>  
+
+	<div class= "col-md-4">
+	<h2> Edit Category </h2>
+	<% if @category!=nil %> 
+		<%= form_for @category do |f| %>
+
+	      <%= f.label :name, "Title" %>
+	      <%= f.text_field :name , class: 'form-control'%>
+
+	      <%= f.label :desc, "Description" %>
+	      <%= f.text_field :desc, class: 'form-control' %>
+
+	      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+	    <% end %>
+	 <% else %> 
+	 	<p>Error Message:  </p>
+	 <% end %>
+</div>
+</div>

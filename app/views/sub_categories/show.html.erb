@@ -1,0 +1,20 @@
+<div class="inner-container"> 
+<h4> <%= @sub_category.name %></h4> <hr/>
+<% if @products.any? %> 
+	<% @products.each do |pro| %>
+			
+		<div class="col-md-3 pro-img-holder">
+				
+				<div class="pro-img"><%= link_to image_tag(pro.file, size:"230x300", alt: "L&N Office System"), "#" %>	</div>
+					<div class="pro-desc">
+					<p><strong> <%= pro.title %> </strong> </p>
+					<p>H: <%= pro.height %> </p> 
+					<p>W: <%= pro.width %> </p>
+					<p>D: <%= pro.depth %> </p> 	
+ 					</div>
+		
+				</div>
+	<% end %>
+<% end %> 
+	<div style="clear:both;"> </div>
+</div>

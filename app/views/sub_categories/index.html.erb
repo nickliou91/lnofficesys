@@ -1,0 +1,55 @@
+<div class ="row">
+<%= render 'layouts/adminsidebar' %>  
+
+
+<div class= "col-md-10"> 
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @sub_categories.each do |sub_category| %>
+      <tr>
+        <td><%= sub_category.name %></td>
+        <td><%= sub_category.desc %></td>
+        <td><td><%= link_to 'Show', sub_category %></td>
+        <td><%= link_to 'Edit', edit_sub_category_path(sub_category) %></td>
+        <td><%= link_to 'Destroy', sub_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+
+  </div>
+
+
+
+</div>
+
+<div class="row">
+<div class= "col-md-4">
+</diV>
+<div class= "col-md-4">
+  <h2> Add Sub-Category </h2>
+  <%= form_for @sub_category do |f| %>
+
+      <%= f.label :name, "Title" %>
+      <%= f.text_field :name , class: 'form-control'%>
+
+      <%= f.label :desc, "Description" %>
+      <%= f.text_field :desc, class: 'form-control' %>
+
+      <%= f.label :file, "Upload Image" %>
+      <%= f.file_field :file %> 
+
+      <%= f.submit "Add Sub-Category", class: "btn btn-primary" %>
+    <% end %>
+
+</div>
+
+
+</div>

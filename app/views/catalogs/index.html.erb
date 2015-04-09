@@ -1,0 +1,46 @@
+<div class="row">
+
+  <%= render 'layouts/adminsidebar' %>
+  <div class= "col-md-10"> 
+    <h2> Product Catalog Listing </h2>
+
+     <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if @catalogs.any? %>
+     <% @catalogs.each do |catalog| %>
+      <tr>
+        <td><%= catalog.name %></td>
+        <td><%= catalog.file %></td>
+        <td><td><%= link_to 'Show', catalog %></td>
+        <td><%= link_to 'Edit', '#' %></td>
+        <td><%= link_to 'Destroy', catalog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+     <% end %>
+     <% end %>
+    </tbody>
+  </table>
+
+
+  </div>
+  <div class="col-md-4">
+   <%= form_for @catalog, :html => {:multipart => true} do |f| %>
+      <%= f.label :name, "File Name to display: " %>
+      <%= f.text_field :name , class: 'form-control'%>
+
+      <%= f.label :file, "Upload File" %>
+      <%= f.file_field :file %> 
+
+      <%= f.submit "Add File", class: "btn btn-primary" %>
+
+
+      <% end %>
+    </div>
+
+</div>

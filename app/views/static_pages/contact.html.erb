@@ -1,2 +1,41 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<% provide(:title, "Contact Us") %> 
+
+<div class="jumbotron jumbotron-sm">
+  <div class = "inner-container">
+  <div class="row">
+    
+
+    <div class = "col-md-6">
+      <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+            <address>
+                <strong>Office & Factory </strong><br>
+                 Lot 2775B, Kg Baru Sg. Buloh, <br>
+                  47000 Sungai Buloh, Selangor D. E., Malaysia <br>
+                <abbr title="Phone">
+                    Tel:</abbr>
+                  603-6156 3340 / 3527 <br>
+                 <abbr title="Fax">
+                    Fax:</abbr>
+                  603-6157 8171 <br>
+                  <abbr title="Email">lnoffsys@gmail.com </abbr>
+
+            </address>
+       <!--      <address>
+                <strong>Full Name</strong><br>
+                <a href="mailto:#">first.last@example.com</a>
+            </address> -->
+            </form>
+
+    </div>
+
+
+
+  <div class="col-md-6">
+
+   	<%= render 'contact_us/new' %>
+    </div>
+
+  </div>
+</div>
+</div>

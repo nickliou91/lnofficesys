@@ -1,0 +1,68 @@
+<div class ="row">
+<%= render 'layouts/adminsidebar' %>  
+
+
+<div class= "col-md-10"> 
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Category name</th>
+        <th>Sub_category</th>
+        <th>Sub Category name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+<!--       <% if @category_sub_categories.any? %>
+ -->     <% @category_sub_categories.each do |cat| %>
+      <tr> 
+        <td> <%= cat.category_id %></td>
+        <td> <%= cat.category.name %> <td>
+        <% if cat.sub_category_id.nil? %>  
+          <td>nil</td>
+          <td>nil</td>
+        <% else %>
+          <td> <%= cat.sub_category_id %> </td>
+          <td> <%= cat.sub_category.name %> </td>
+        <% end %>
+        <td><td><%= link_to 'Show', cat %></td>
+        <td><%= link_to 'Edit', edit_category_sub_category_path(cat) %></td>
+        <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+     <% end %>
+<!--      <% end %>
+ -->    </tbody>
+  </table>
+
+  </div>
+
+
+
+</div>
+
+<div class="row">
+<div class= "col-md-4">
+</diV>
+<div class= "col-md-4">
+	<h2> Add Category-Sub_Category </h2>
+	<%= form_for @category_sub_category do |f| %>
+
+      <%= f.label :category_id, "Category" %>
+      <%= f.collection_select(:category_id, @categories, :id, :name, :include_blank =>" Please select an category") %>
+<!--       <%= f.text_field :category_id , class: 'form-control'%>
+ -->
+      <%= f.label :sub_category_id, "Sub_category" %>
+            <%= f.collection_select(:sub_category_id, @sub_categories, :id, :name, :include_blank =>" Please select an sub-category")%>
+
+<!--       <%= f.text_field :sub_category_id, class: 'form-control' %>
+ -->
+      <%= f.submit "Add Category", class: "btn btn-primary" %>
+    <% end %>
+
+</div>
+
+
+</div>

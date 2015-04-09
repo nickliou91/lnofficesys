@@ -1,0 +1,25 @@
+<div class="row">
+	<%= render 'layouts/adminsidebar' %>  
+
+<div class= "col-md-4">
+</diV>
+<div class= "col-md-4">
+  <h2> Add Sub-Category </h2>
+  <%= form_for @sub_category do |f| %>
+
+      <%= f.label :name, "Title" %>
+      <%= f.text_field :name , class: 'form-control'%>
+
+      <%= f.label :desc, "Description" %>
+      <%= f.text_field :desc, class: 'form-control' %>
+
+      <%= f.label :file, "Upload Image" %>
+      <%= f.file_field :file %> 
+
+      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+    <% end %>
+
+</div>
+
+
+</div>

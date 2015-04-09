@@ -1,0 +1,36 @@
+<div class="row">
+  <h2> Edit Products </h2>
+  <%= render 'layouts/adminsidebar' %>
+  <div class="col-md-4">
+   <%= form_for @product, :html => {:multipart => true} do |f| %>
+      
+      <%= f.label :title, "Product SKU" %>
+      <%= f.text_field :title , class: 'form-control'%>
+
+
+      <%= f.label :desc, "Name" %>
+      <%= f.text_field :desc , class: 'form-control'%>
+       <%= f.label :height, "Height" %>
+      <%= f.text_field :height, class: 'form-control' %>
+      <%= f.label :width, "Width" %>
+      <%= f.text_field :width, class: 'form-control' %>
+
+     
+      <%= f.label :depth, "Depth" %>
+      <%= f.text_field :depth, class: 'form-control' %>
+
+      <%= f.label :category_id, "Category" %>
+      <%= f.collection_select(:category_id, @categories, :id, :name, :include_blank =>" Please select an category") %>
+
+      <%= f.label :sub_category_id, "Sub_category" %>
+            <%= f.collection_select(:sub_category_id, @sub_categories, :id, :name, :include_blank =>" Please select an sub-category")%>
+      <%= f.label :file, "Upload Image" %>
+      <%= f.file_field :file %> 
+
+      <%= f.submit "Update", class: "btn btn-primary" %>
+
+
+      <% end %>
+    </div>
+
+</div>

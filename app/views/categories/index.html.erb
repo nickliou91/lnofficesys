@@ -1,0 +1,52 @@
+<div class ="row">
+<%= render 'layouts/adminsidebar' %>  
+
+
+<div class= "col-md-10"> 
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.desc %></td>
+        <td><td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+
+  </div>
+
+
+
+</div>
+
+<div class="row">
+<div class= "col-md-4">
+</diV>
+<div class= "col-md-4">
+	<h2> Add Category </h2>
+	<%= form_for @category do |f| %>
+
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name , class: 'form-control'%>
+
+      <%= f.label :desc, "Description" %>
+      <%= f.text_field :desc, class: 'form-control' %>
+
+      <%= f.submit "Add Category", class: "btn btn-primary" %>
+    <% end %>
+
+</div>
+
+
+</div>

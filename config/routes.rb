@@ -1,7 +1,33 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  
+    devise_for :admins, path: "", path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup', controllers: { sessions: "admins/sessions" } }
+ 
+  # get 'users/new'
 
-  get 'static_pages/contact'
+  root 'static_pages#home'
+  get 'contact' => 'contacts#new'
+  get 'items' => 'static_pages#product'
+  get 'productcatalogs' => 'static_pages#catalog'
+
+  resources :admins
+  
+  # namespace :admins do
+  
+  # # resources :sub_categories, :category_sub_categories, :products
+  # resources :categories
+  # end
+
+
+  resources :categories
+  resources :sub_categories
+  resources :category_sub_categories
+  resources :products
+  resources :catalogs
+  resources  :contacts, only:[:new, :create]
+ 
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
