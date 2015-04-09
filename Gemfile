@@ -32,6 +32,7 @@ gem 'active_attr'
 group :development, :test do
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
