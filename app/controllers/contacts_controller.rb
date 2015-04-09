@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
 
-	skip_before_filter :authenticate_admin!, only: [:new]	
+	skip_before_filter :authenticate_admin!, only: [:new, :create]	
 
 	def new
 		@contact = Contact.new
