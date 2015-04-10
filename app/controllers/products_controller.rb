@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
   def index
   	@product = Product.new
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], per_page: 10)
     @categories = Category.all
     @sub_categories = SubCategory.all
   end

@@ -26,7 +26,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "fog"
 gem 'active_attr'
-
+gem 'will_paginate', '~> 3.0'
 
 
 group :development, :test do
