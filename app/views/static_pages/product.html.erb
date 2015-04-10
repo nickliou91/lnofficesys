@@ -11,9 +11,9 @@
 				<% sub_cat.each do |s| %>
 					<% sub_category = SubCategory.find(s.sub_category_id) %>
 				 	
-						<div class="category-container"> 
+						<div class="col-md-3 category-container"> 
 							<div class="category-image">
-								<%= link_to image_tag(sub_category.file, size:"120x150", :crop => :fill, alt: "L&N Office System"), sub_category %> </div> 
+								<%= link_to image_tag(sub_category.file, size:"230x300", :crop => :fill, alt: "L&N Office System"), sub_category %> </div> 
 								<div class="category-name">
 								  <p>
 								  	<%= link_to sub_category.name ,sub_category %> </p>
@@ -25,9 +25,9 @@
 		<% else %>
 					<% products = Product.where(category_id: cat.id) %>
 					<% products.each do |p| %>
-						<div class="category-container"> 
+						<div class="col-md-3 category-container"> 
 							<div class="category-image">
-								<%= link_to image_tag(p.file, size:"120x150", :crop => :fill, alt: "L&N Office System"),p %>
+								<%= link_to image_tag(p.file, size:"230x300", :crop => :fill, alt: "L&N Office System"),p %>
 							</div>	
 							<div class="category-name"> 
 								<p> <%= link_to p.title , p %> </p>
