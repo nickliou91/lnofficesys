@@ -42,7 +42,7 @@
   </table>
 
   </div>
-
+</div>
   <div class="row">
   <div class="col-md-4">
    <%= form_for @product, :html => {:multipart => true} do |f| %>
@@ -52,7 +52,7 @@
       <%= f.text_field :title , class: 'form-control'%>
 
 
-      <%= f.label :desc, "Name" %>
+      <%= f.label :desc, "Desc" %>
       <%= f.text_field :desc , class: 'form-control'%>
 
        <%= f.label :height, "Height" %>

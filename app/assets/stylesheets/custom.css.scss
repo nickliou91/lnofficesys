@@ -22,6 +22,9 @@ body {
     height: 100%;
 }
 
+.carousel-control{
+  opacity:0 !important;
+}
 /* Background images are set within the HTML using inline CSS, not here */
 
 .fill {
@@ -138,4 +141,12 @@ input{
   margin-right:10%;
   margin-left: 10%;
   backrgound-color:white; 
+}
+
+.about-image{
+  float:left;
+  width:auto;
+  height: auto;
+  border: 2px solid #eaeaea;
+  margin-right: 20px;
 }

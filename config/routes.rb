@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'contact' => 'contacts#new'
+  get 'about' => 'static_pages#about'
   get 'items' => 'static_pages#product'
   get 'productcatalogs' => 'static_pages#catalog'
 
