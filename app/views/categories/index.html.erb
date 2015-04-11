@@ -43,6 +43,9 @@
       <%= f.label :desc, "Description" %>
       <%= f.text_field :desc, class: 'form-control' %>
 
+      <%= f.label :file, "Upload Image" %>
+      <%= f.file_field :file %> 
+
       <%= f.submit "Add Category", class: "btn btn-primary" %>
     <% end %>
 

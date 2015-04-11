@@ -5,37 +5,31 @@
 	<% @categories.each do |cat| %>
 		<h4> <%= cat.name %> </h4>
 		<hr/> 
-		<div style="clear:both;"></div>		
-		<% sub_cat = CategorySubCategory.where(category_id: cat.id)	%>
+		<% sub_cat = cat.sub_categories	%>
 		<% if sub_cat.count != 0 %> 
 				<% sub_cat.each do |s| %>
-					<% sub_category = SubCategory.find(s.sub_category_id) %>
 				 	
 						<div class="col-md-3 category-container"> 
 							<div class="category-image">
-								<%= link_to image_tag(sub_category.file, size:"230x300", :crop => :fill, alt: "L&N Office System"), sub_category %> </div> 
+								<%= link_to image_tag(s.file, size:"230x300", :crop => :fill, alt: "L&N Office System"), s %> </div> 
 								<div class="category-name">
 								  <p>
-								  	<%= link_to sub_category.name ,sub_category %> </p>
+								  	<%= link_to s.name ,s %> </p>
 								</div>
 						</div>
 				<% end %>	
 				<div style="clear:both;"></div>	
 
 		<% else %>
-					<% products = Product.where(category_id: cat.id) %>
-					<% products.each do |p| %>
-						<div class="col-md-3 category-container"> 
+					<div class="col-md-3 category-container"> 
 							<div class="category-image">
-								<%= link_to image_tag(p.file, size:"230x300", :crop => :fill, alt: "L&N Office System"),p %>
-							</div>	
+								<%= link_to image_tag(cat.file, size:"230x300", :crop => :fill, alt: "L&N Office System"), cat %> </div> 
 							<div class="category-name"> 
-								<p> <%= link_to p.title , p %> </p>
+								<p> <%= link_to cat.name , cat %> </p>
 							</div>
 
 						</div>
-					<% end %> 
-					 <div style="clear:both;"></div>	
+				<div style="clear:both;"> </div>
 		<% end %>
 		
 	<% end %>

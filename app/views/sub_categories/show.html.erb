@@ -6,11 +6,10 @@
 		<div class="col-md-3 pro-img-holder">
 				
 				<div class="pro-img"><%= link_to image_tag(pro.file, size:"230x300", alt: "L&N Office System"), "#" %>	</div>
-					<div class="pro-desc">
+				<div class="pro-desc">
 					<p><strong> <%= pro.title %> </strong> </p>
-					<p>H: <%= pro.height %> </p> 
-					<p>W: <%= pro.width %> </p>
-					<p>D: <%= pro.depth %> </p> 	
+					<p><%= pro.desc %> </p>
+					<p>H: <%= pro.height %>  W:<%= pro.width %>  D:<%= pro.depth %></p> 
  					</div>
 		
 				</div>

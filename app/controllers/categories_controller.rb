@@ -45,6 +45,9 @@ end
 
 def show
 
+  @category = Category.find(params[:id])
+  @products = Product.where(category_id: params[:id])
+
 	# @category= Category.find(params[:id])
 	# @category_sub_category = CategorySubCategory.where(category_id: @category.id)
 	# # byebug
@@ -61,7 +64,7 @@ def show
 
  private 
   	def category_params
-  		params.require(:category).permit(:name, :desc)
+  		params.require(:category).permit(:name, :desc, :file)
   	end  
 
 end
